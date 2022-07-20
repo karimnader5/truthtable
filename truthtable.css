@@ -1,9 +1,25 @@
 html {
-  margin: 3%;
+  max-width: 800px;
+  margin: 0px auto;
 }
 
-body{ 
-  font-family: Arial, Helvetica, sans-serif;
+header {
+  height: 50px; 
+  width: 100%; 
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: #001728;
+  color: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+main {
+  margin: 20px 20px;
+
 }
 
 #inputs {
@@ -17,6 +33,9 @@ body{
   margin-bottom: 10px;
 }
 
+#instructions {
+  justify-content: center;
+}
 
 #buttons button {
   display: block;
@@ -32,10 +51,9 @@ body{
 }
 
 #connector-buttons-section > div {
-  /* border: solid 1px grey; */
-  box-shadow: 2px 2px 2px grey;
-  border-radius: 5px;;
-  padding: 5px;; 
+  box-shadow: 1px 1px 1px #001728;
+  border-radius: 5px;
+  padding: 5px;;
 }
 
 #connector-buttons-section button {
@@ -43,9 +61,19 @@ body{
   height: 40px;
 }
 
+#instructions p {
+  text-align: justify;
+}
+
 .connector-button {
   display: flex;
   column-gap: 10px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #001728;
+  border-color: #001728;
 }
 
 th {
@@ -80,6 +108,7 @@ td, th {
 #tt input {
   visibility: hidden;
 }
+
 #tt input:checked + label {
   background: #007bff;
   color: white;

@@ -4,112 +4,124 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="./node_modules\bootstrap\dist\css\bootstrap.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="truthtable.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
 
   <title>Truth Table Generator</title>
   </head>
-  <body>
-    <div id="inputs">
-      <div id="formula-section">
-        <div id="formula-input">
-          <label for="formula">Write a formula:</label>
-          <input
-            type="text"
-            id="formula"
-            class="form-control"
-            autocomplete="off"
-          />
-        </div>
 
-        <div id="buttons">
-          <button type="button" class="btn btn-primary" onclick="myFunction();">
-            See Truth Table
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning"
-            onclick="makeExercise();"
-          >
-            Exercise
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            onclick="checkSolution();"
-          >
-            Correct
-          </button>
-        </div>
+  <body>
+
+    <header>
+      <h3>Karim Nader</h3>
+      <h5>Truth Table App</h5>
+    </header>
+
+    <main>
+
+    <div id="description-section" class="row">
+      <div id="instructions" class="col-md-6">
+        <h2>Instructions</h2>
+        <p>This app generates a truth table for a formula written in truth-functional logic.</p>
+        <p>You may use the buttons on the right to insert connectors into the field below, or you may type the respective alternative indicated in the boxes.</p>
+        <p>To see the truth table, click "See Truth Table." To generate an exercise table that allows you to practice, click "Exercise." "Correct" will indicate which of your answer is right, and which is wrong.</p>
+        
       </div>
 
-      <div id="connector-buttons-section">
-        <div class="connector-button">
-          <button class="btn btn-secondary" id="not" onclick="not();">¬</button>
+      <div id="connector-buttons-section" class="col-md-6">
+        <div class="connector-button" onclick="not();">
+          <button class="btn btn-secondary" id="not">¬</button>
           <section class="connector-description">
             <div class="connector-name">NOT</div>
-            <div class="connector-alternative">Input: "~" or "not-"</div>
+            <div class="connector-alternative">Write: "~" or "not-"</div>
           </section>
         </div>
-        <div class="connector-button">
-          <button class="btn btn-secondary" id="and" onclick="and();">∧</button>
+        <div class="connector-button" onclick="and();">
+          <button class="btn btn-secondary" id="and" >∧</button>
           <section class="connector-description">
             <div class="connector-name">AND</div>
-            <div class="connector-alternative">Input: "&" or "and"</div>
+            <div class="connector-alternative">Write: "&" or "and"</div>
           </section>
         </div>
-        <div class="connector-button">
-          <button class="btn btn-secondary" id="or" onclick="or();">∨</button>
+        <div class="connector-button" onclick="or();">
+          <button class="btn btn-secondary" id="or" >∨</button>
           <section class="connector-description">
             <div class="connector-name">OR</div>
-            <div class="connector-alternative">Input: "or"</div>
+            <div class="connector-alternative">Write: "or"</div>
           </section>
         </div>
-        <div class="connector-button">
-          <button class="btn btn-secondary" id="ifthen" onclick="ifthen();">
-            →
-          </button>
+        <div class="connector-button"onclick="ifthen();">
+          <button class="btn btn-secondary" id="ifthen" >→</button>
           <section class="connector-description">
             <div class="connector-name">IF</div>
-            <div class="connector-alternative">Input: ">" or "then"</div>
+            <div class="connector-alternative">Write: ">" or "then"</div>
           </section>
         </div>
-        <div class="connector-button">
-          <button class="btn btn-secondary" id="iff" onclick="iff();">↔</button>
+        <div class="connector-button" onclick="iff();">
+          <button class="btn btn-secondary" id="iff" >↔</button>
           <section class="connector-description">
             <div class="connector-name">IF AND ONLY IF</div>
-            <div class="connector-alternative">Input: "<>" or "iff"</div>
+            <div class="connector-alternative">Write: "<>" or "iff"</div>
           </section>
         </div>
       </div>
+
     </div>
 
+    <div id="input-section">
+          <div id="formula-input">
+            <label for="formula">Write a formula:</label>
+            <input
+              type="text"
+              id="formula"
+              class="form-control"
+              autocomplete="off"
+            />
+          </div>
+  
+          <div id="buttons">
+            <button type="button" class="btn btn-primary" onclick="myFunction();">
+              See Truth Table
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="makeExercise();"
+            >
+              Exercise
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="checkSolution();"
+            >
+              Correct
+            </button>
+          </div>
+      </div>
+
     <div id="tt-section">
-      <div id="tt" class="table-responsive"></div>
+      <div id="tt" class="table-responsive">
+      </div>
     </div>
-    <div id="console"></div>
+    
+  </main>
 
     <script src="truthtable.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+  </script>
   </body>
 </html>
